@@ -15,12 +15,6 @@ app.register_blueprint(app_views)
 def teardown(e):
     storage.close()
 
-
-@app.errorhandler(404)
-def notfound(e):
-    return make_response({'error': 'Not found'}, 404)
-
-
 if __name__ == "__main__":
     app.run(host=getenv('HBNB_API_HOST', default='0.0.0.0'),
             port=getenv('HBNB_API_PORT', default=5000), threaded=True)
