@@ -10,6 +10,7 @@ from models import storage
 def status():
     return jsonify({"status": "OK"})
 
+
 @app_views.route('/stats', strict_slashes=False)
 def stats():
     a = {
@@ -24,4 +25,3 @@ def stats():
     for k, v in a.items():
         b[v] = storage.count(k)
     return jsonify(b)
-
